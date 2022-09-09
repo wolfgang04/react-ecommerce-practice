@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-import cart from "../images/icon-cart.svg";
-import shoe1 from "../images/image-product-1.jpg";
-import shoe1tn from "../images/image-product-1-thumbnail.jpg";
-import shoe2tn from "../images/image-product-2-thumbnail.jpg";
-import shoe3tn from "../images/image-product-3-thumbnail.jpg";
-import shoe4tn from "../images/image-product-4-thumbnail.jpg";
+import data from "../db";
 
-const Content = () => {
+import cartImg from "../images/icon-cart.svg";
+import minus from "../images/icon-minus.svg";
+import plus from "../images/icon-plus.svg";
+
+const Content = ({ cart, setCart }) => {
 	const [amount, setAmount] = useState(0);
 
 	const handleIncreaseAmount = () => {
@@ -24,35 +23,27 @@ const Content = () => {
 		<div className="flex justify-center items-center mx-40 p-8">
 			<div className="flex justify-between items-center w-[1000px]">
 				{/* LEFT */}
+				
 				<div>
 					<img
-						src={shoe1}
+						src={data.products[0].images[0]}
 						alt=""
 						className="w-auto rounded-xl h-96 max-h-full"
 					/>
+
 					<div className="pt-6 flex justify-between">
-						<img
-							src={shoe1tn}
-							alt=""
-							className="w-auto h-20 rounded-xl inline"
-						/>
-						<img
-							src={shoe2tn}
-							alt=""
-							className="w-auto h-20 rounded-xl inline"
-						/>
-						<img
-							src={shoe3tn}
-							alt=""
-							className="w-auto h-20 rounded-xl inline"
-						/>
-						<img
-							src={shoe4tn}
-							alt=""
-							className="w-auto h-20 rounded-xl inline"
-						/>
+						{data.products[0].images.map(image => {
+							return (
+								<img
+									src={image}
+									alt=""
+									className="w-auto h-20 rounded-xl inline"
+								/>
+							);
+						})}
 					</div>
 				</div>
+
 				{/* RIGHT */}
 				<div className="w-[500px]">
 					<p className="text-Orange font-medium">SNEAKER COMPANY</p>
@@ -64,6 +55,7 @@ const Content = () => {
 						companion. Featuring a durable rubber outer sole,
 						they'll withstand everything the weather can offer.
 					</p>
+
 					{/* PRICE */}
 					<div>
 						<div className="flex items-center justify-between max-w-[150px]">
@@ -75,33 +67,34 @@ const Content = () => {
 
 						<p className="line-through text-gray-500">$250.00</p>
 					</div>
+
 					{/* ADD TO CART SECTION */}
 					<div className="flex items-center justify-between mt-8">
 						{/* AMOUNT INPUT */}
 						<div className="flex justify-around items-center w-[200px] max-w-[200px] h-[40px] bg-light-grayish-blue rounded-lg">
-							<button
-								onClick={handleDecreaseAmount}
-								className="text-Orange font-black text-2xl"
-							>
-								-
+							<button onClick={handleDecreaseAmount}>
+								<img alt="" src={minus} />
 							</button>
 							<p className="">{amount}</p>
-							<button
-								onClick={handleIncreaseAmount}
-								className="text-Orange font-black text-2xl"
-							>
-								+
+							<button onClick={handleIncreaseAmount}>
+								<img alt="" src={plus} />
 							</button>
 						</div>
+
 						{/* BUTTON */}
-						<div className="flex justify-center items-center w-[350px] h-[40px] ml-5 bg-Orange text-white rounded-lg">
+						<button
+							className="flex justify-center items-center w-[350px] h-[40px] ml-5 bg-Orange text-white rounded-lg"
+							onClick={() => {
+								let newCart = cart.slice();
+							}}
+						>
 							<img
-								src={cart}
+								src={cartImg}
 								alt=""
 								className="self-center pr-2"
 							/>
 							<p>Add to cart</p>
-						</div>
+						</button>
 					</div>
 				</div>
 			</div>

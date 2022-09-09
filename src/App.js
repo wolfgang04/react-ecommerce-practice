@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Content from "./components/Content";
 import Header from "./components/Header";
 
 function App() {
+	const [cart, setCart] = useState([]);
+
 	return (
 		<>
-			<Header />
-			<Content />
+			<Header {...{ cart, setCart }} />
+			<Content {...{ cart, setCart }} />
 		</>
 	);
 }

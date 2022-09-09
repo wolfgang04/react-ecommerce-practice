@@ -8,6 +8,7 @@ module.exports = {
 				"pale-orange": "hsl(25, 100%, 94%)",
 				"light-grayish-blue": "hsl(223, 64%, 98%)",
 				"grayish-blue": "hsl(220, 14%, 75%)",
+				"dark-grayish-blue": "hsl(219, 9%, 45%)",
 			},
 		},
 	},
