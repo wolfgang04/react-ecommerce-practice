@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-import logo from "../images/logo.svg";
-import cart from "../images/icon-cart.svg";
-import avatar from "../images/image-avatar.png";
-
 const Header = () => {
 	const [showCart, setShowCart] = useState(false);
 
@@ -12,7 +8,11 @@ const Header = () => {
 			<div className="flex justify-between items-center w-10/12 pb-8 border-b-[1px]">
 				{/* LEFT */}
 				<div className="flex flex-row justify-between w-[600px]">
-					<img src={logo} alt="" className="self-center" />
+					<img
+						src={process.env.PUBLIC_URL + "../../images/logo.svg"}
+						alt=""
+						className="self-center"
+					/>
 					<span className="flex flex-row justify-between w-[350px]">
 						<a href="">
 							<p>Collections</p>
@@ -37,10 +37,20 @@ const Header = () => {
 					<button
 						onClick={() => setShowCart((prevValue) => !prevValue)}
 					>
-						<img src={cart} alt="" className="self-center" />
+						<img
+							src={
+								process.env.PUBLIC_URL +
+								"../../images/icon-cart.svg"
+							}
+							alt=""
+							className="self-center"
+						/>
 					</button>
 					<img
-						src={avatar}
+						src={
+							process.env.PUBLIC_URL +
+							"../../images/image-avatar.png"
+						}
 						alt=""
 						className="self-center w-12 h-auto hover:bg-Orange rounded-full"
 					/>

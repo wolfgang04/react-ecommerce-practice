@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Content from "./components/Content";
-import Header from "./components/Header";
+import { Route, Routes, Navigate } from "react-router";
+import Collections from "./pages/Collections";
 
 function App() {
 	const [cart, setCart] = useState([]);
 
 	return (
-		<>
-			<Header {...{ cart, setCart }} />
-			<Content {...{ cart, setCart }} />
-		</>
+		<Routes>
+			<Route path="/" element={<Navigate to="collections" />} />
+			<Route path="/collections" element={<Collections />} exact />
+		</Routes>
 	);
 }
 

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import data from "../db";
 
-import cartImg from "../images/icon-cart.svg";
-import minus from "../images/icon-minus.svg";
-import plus from "../images/icon-plus.svg";
+// import cartImg from "../../public/images/icon-cart.svg";
+// import minus from "../../public/images/icon-minus.svg";
+// import plus from "../../public/images/icon-plus.svg";
 
 const Content = ({ cart, setCart }) => {
 	const [amount, setAmount] = useState(0);
@@ -23,7 +23,7 @@ const Content = ({ cart, setCart }) => {
 		<div className="flex justify-center items-center mx-40 p-8">
 			<div className="flex justify-between items-center w-[1000px]">
 				{/* LEFT */}
-				
+
 				<div>
 					<img
 						src={data.products[0].images[0]}
@@ -32,7 +32,7 @@ const Content = ({ cart, setCart }) => {
 					/>
 
 					<div className="pt-6 flex justify-between">
-						{data.products[0].images.map(image => {
+						{data.products[0].images.map((image) => {
 							return (
 								<img
 									src={image}
@@ -73,11 +73,11 @@ const Content = ({ cart, setCart }) => {
 						{/* AMOUNT INPUT */}
 						<div className="flex justify-around items-center w-[200px] max-w-[200px] h-[40px] bg-light-grayish-blue rounded-lg">
 							<button onClick={handleDecreaseAmount}>
-								<img alt="" src={minus} />
+								<img alt="" />
 							</button>
 							<p className="">{amount}</p>
 							<button onClick={handleIncreaseAmount}>
-								<img alt="" src={plus} />
+								<img alt="" />
 							</button>
 						</div>
 
@@ -88,11 +88,7 @@ const Content = ({ cart, setCart }) => {
 								let newCart = cart.slice();
 							}}
 						>
-							<img
-								src={cartImg}
-								alt=""
-								className="self-center pr-2"
-							/>
+							<img alt="" className="self-center pr-2" />
 							<p>Add to cart</p>
 						</button>
 					</div>
