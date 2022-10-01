@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Header from "../components/Header";
 
 import data from "../db";
@@ -17,15 +18,22 @@ const Collections = () => {
 							className="flex flex-col items-center mt-8"
 						>
 							<button>
-								<img
-									alt=""
-									src={product.images[0]}
-									className="w-auto h-60 rounded-xl inline m-auto"
-								/>
-								<p className="pt-4">{product.productName}</p>
-								<p className="font-semibold rounded-lg text-center">
-									${product.price}.00
-								</p>
+								<NavLink
+									to={`/collections/${product.productName}`}
+									state={{ productDetails: product }}
+								>
+									<img
+										alt=""
+										src={product.images[0]}
+										className="w-auto h-60 rounded-xl inline m-auto"
+									/>
+									<p className="pt-4">
+										{product.productName}
+									</p>
+									<p className="font-semibold rounded-lg text-center">
+										${product.price}.00
+									</p>
+								</NavLink>
 							</button>
 						</div>
 					);

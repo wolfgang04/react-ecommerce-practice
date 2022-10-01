@@ -14,21 +14,25 @@ const Header = () => {
 						className="self-center"
 					/>
 					<span className="flex flex-row justify-between w-[350px]">
-						<a href="">
+						<a href="/collections">
 							<p>Collections</p>
 						</a>
-						<a href="">
-							<p>Men</p>
+						<button><p>Men</p></button>
+						<button><p>Women</p></button>
+						<button><p>About</p></button>
+						<button><p>Contact</p></button>
+						{/* <a href="">
+							
 						</a>
 						<a href="">
-							<p>Women</p>
+							
 						</a>
 						<a href="">
-							<p>About</p>
+							
 						</a>
 						<a href="">
-							<p>Contact</p>
-						</a>
+							
+						</a> */}
 					</span>
 				</div>
 
