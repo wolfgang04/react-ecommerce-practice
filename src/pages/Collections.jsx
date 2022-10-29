@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 import data from "../db";
@@ -18,7 +18,7 @@ const Collections = () => {
 							className="flex flex-col items-center mt-8"
 						>
 							<button>
-								<NavLink
+								<Link
 									to={`/collections/${product.productName}`}
 									state={{ productDetails: product }}
 								>
@@ -33,7 +33,7 @@ const Collections = () => {
 									<p className="font-semibold rounded-lg text-center">
 										${product.price}.00
 									</p>
-								</NavLink>
+								</Link>
 							</button>
 						</div>
 					);

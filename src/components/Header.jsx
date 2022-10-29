@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Cart from "./Cart";
 
 const Header = () => {
 	const [showCart, setShowCart] = useState(false);
+
+	const handleToggle = (toggleState) => {
+		setShowCart(toggleState);
+	};
 
 	return (
 		<header className="flex justify-center p-8">
@@ -14,25 +20,21 @@ const Header = () => {
 						className="self-center"
 					/>
 					<span className="flex flex-row justify-between w-[350px]">
-						<a href="/collections">
+						<Link to="/collections">
 							<p>Collections</p>
-						</a>
-						<button><p>Men</p></button>
-						<button><p>Women</p></button>
-						<button><p>About</p></button>
-						<button><p>Contact</p></button>
-						{/* <a href="">
-							
-						</a>
-						<a href="">
-							
-						</a>
-						<a href="">
-							
-						</a>
-						<a href="">
-							
-						</a> */}
+						</Link>
+						<button>
+							<p>Men</p>
+						</button>
+						<button>
+							<p>Women</p>
+						</button>
+						<button>
+							<p>About</p>
+						</button>
+						<button>
+							<p>Contact</p>
+						</button>
 					</span>
 				</div>
 
@@ -58,28 +60,7 @@ const Header = () => {
 						alt=""
 						className="self-center w-12 h-auto hover:bg-Orange rounded-full"
 					/>
-					{showCart && (
-						<div
-							onClick={() =>
-								setShowCart((prevValue) => !prevValue)
-							}
-							className="overflow-x-hidden overflow-y-auto fixed inset-0 z-50"
-						>
-							<div className="bg-white w-80 shadow-2xl min-h-[230px] ml-auto rounded-lg relative right-[90px] top-[80px]">
-								<div>
-									<p className="font-bold p-5 border-b-[1px]">
-										Cart
-									</p>
-								</div>
-
-								<div className="flex flex-col items-center justify-center h-full">
-									<p className="text-dark-grayish-blue">
-										Your cart is empty.
-									</p>
-								</div>
-							</div>
-						</div>
-					)}
+					{showCart && <Cart onToggle={handleToggle} />}
 				</div>
 			</div>
 		</header>

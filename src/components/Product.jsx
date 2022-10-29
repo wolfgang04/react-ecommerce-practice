@@ -1,18 +1,29 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
+import { cartActions } from "../store/cartSlice";
 import Header from "./Header";
-
-// import cartImg from "../../public/images/icon-cart.svg";
-// import minus from "../../public/images/icon-minus.svg";
-// import plus from "../../public/images/icon-plus.svg";
 
 const Product = () => {
 	const location = useLocation();
 	const { productDetails } = location.state;
-
-	console.log(productDetails);
-
 	const [amount, setAmount] = useState(0);
+	const dispatch = useDispatch();
+
+	const handleAddItem = () => {
+		if (amount === 0) return;
+
+		dispatch(
+			cartActions.addItem({
+				amount: amount,
+				id: productDetails.id,
+				name: productDetails.productName,
+				price: productDetails.price,
+				tn: productDetails.images[0],
+			})
+		);
+		setAmount(0);
+	};
 
 	const handleIncreaseAmount = () => {
 		if (amount === 10) return;
@@ -71,7 +82,7 @@ const Product = () => {
 						<div>
 							<div className="flex items-center justify-between max-w-[150px]">
 								<h1 className="font-bold text-2xl mb-1">
-									$125.00
+									${productDetails.price}.00
 								</h1>
 								<p className="text-Orange bg-pale-orange font-semibold rounded-lg text-center w-12">
 									50%
@@ -88,22 +99,39 @@ const Product = () => {
 							{/* AMOUNT INPUT */}
 							<div className="flex justify-around items-center w-[200px] max-w-[200px] h-[40px] bg-light-grayish-blue rounded-lg">
 								<button onClick={handleDecreaseAmount}>
-									<img alt="" />
+									<img
+										alt=""
+										src={
+											process.env.PUBLIC_URL +
+											"../../images/icon-minus.svg"
+										}
+									/>
 								</button>
 								<p className="">{amount}</p>
 								<button onClick={handleIncreaseAmount}>
-									<img alt="" />
+									<img
+										alt=""
+										src={
+											process.env.PUBLIC_URL +
+											"../../images/icon-plus.svg"
+										}
+									/>
 								</button>
 							</div>
 
 							{/* BUTTON */}
 							<button
 								className="flex justify-center items-center w-[350px] h-[40px] ml-5 bg-Orange text-white rounded-lg"
-								// onClick={() => {
-								// 	let newCart = cart.slice();
-								// }}
+								onClick={handleAddItem}
 							>
-								<img alt="" className="self-center pr-2" />
+								<img
+									alt=""
+									className="self-center pr-2"
+									src={
+										process.env.PUBLIC_URL +
+										"../../images/icon-cart.svg"
+									}
+								/>
 								<p>Add to cart</p>
 							</button>
 						</div>
