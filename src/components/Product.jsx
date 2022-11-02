@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { cartActions } from "../store/cartSlice";
 import Header from "./Header";
@@ -37,7 +37,7 @@ const Product = () => {
 
 	return (
 		<>
-			<Header />
+			<Header for={productDetails.for} />
 			<div className="flex justify-center items-center mx-40 p-8">
 				<div className="flex justify-between items-center w-[1000px]">
 					{/* LEFT */}

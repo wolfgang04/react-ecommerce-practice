@@ -4,15 +4,16 @@ import Header from "../components/Header";
 
 import data from "../db";
 
-const Collections = () => {
+const WomensCollection = () => {
 	const products = data.products;
+	const womensProducts = products.filter((product) => product.for === "women");
 	const location = useLocation();
 
 	return (
 		<>
-			<Header pathName={location.pathname} />
+			<Header path={location.pathname} />
 			<div className="flex justify-evenly">
-				{products.map((product) => {
+				{womensProducts.map((product) => {
 					return (
 						<div
 							key={product.productName}
@@ -44,4 +45,4 @@ const Collections = () => {
 	);
 };
 
-export default Collections;
+export default WomensCollection;

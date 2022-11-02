@@ -2,39 +2,46 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 
-const Header = () => {
+const Header = (props) => {
 	const [showCart, setShowCart] = useState(false);
+
+	const underline = "border-b-Orange border-b-4 pb-8 pt-8 text-black";
+	const menStyle = props.for === "men" || props.path === "/men" ? underline : "";
+	const womenStyle = props.for === "women" || props.path === "/women" ? underline : "";
+	const pathStyle = props.pathName === "/collections" ? underline : "";
+	const aboutStyle = props.path === "/about" ? underline : "";
+	const contactStyle = props.path === "/contacts" ? underline : "";
 
 	const handleToggle = (toggleState) => {
 		setShowCart(toggleState);
 	};
 
 	return (
-		<header className="flex justify-center p-8">
-			<div className="flex justify-between items-center w-10/12 pb-8 border-b-[1px]">
+		<header className="flex justify-center pb-8">
+			<div className="flex justify-between items-center w-10/12 border-b-[1px] pl-8 pr-8">
 				{/* LEFT */}
 				<div className="flex flex-row justify-between w-[600px]">
 					<img
 						src={process.env.PUBLIC_URL + "../../images/logo.svg"}
-						alt=""
+						alt="logo-img"
 						className="self-center"
 					/>
-					<span className="flex flex-row justify-between w-[350px]">
+					<span className="flex flex-row justify-between items-center w-[350px] text-dark-grayish-blue">
 						<Link to="/collections">
-							<p>Collections</p>
+							<p className={pathStyle}>Collections</p>
 						</Link>
-						<button>
-							<p>Men</p>
-						</button>
-						<button>
-							<p>Women</p>
-						</button>
-						<button>
-							<p>About</p>
-						</button>
-						<button>
-							<p>Contact</p>
-						</button>
+						<Link to="/men">
+							<p className={menStyle}>Men</p>
+						</Link>
+						<Link to="/women">
+							<p className={womenStyle}>Women</p>
+						</Link>
+						<Link to="/about">
+							<p className={aboutStyle}>About</p>
+						</Link>
+						<Link to="/contacts">
+							<p className={contactStyle}>Contact</p>
+						</Link>
 					</span>
 				</div>
 
