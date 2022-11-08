@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { cartActions } from "../store/cartSlice";
+import ActiveProductPreview from "./ActiveProductPreview";
 import Header from "./Header";
 
 const Product = () => {
+	const [showProductPreview, setShowProductPreview] = useState(false);
 	const location = useLocation();
 	const { productDetails } = location.state;
+	const [currPreview, setCurrPreview] = useState(productDetails.images[0]);
 	const [amount, setAmount] = useState(0);
 	const dispatch = useDispatch();
 
@@ -35,6 +38,10 @@ const Product = () => {
 		setAmount((prevAmount) => prevAmount - 1);
 	};
 
+	const handleClose = (props) => {
+		setShowProductPreview(props);
+	};
+
 	return (
 		<>
 			<Header for={productDetails.for} />
@@ -43,24 +50,40 @@ const Product = () => {
 					{/* LEFT */}
 
 					<div>
-						<img
-							src={productDetails.images[0]}
-							alt=""
-							className="w-auto rounded-xl h-96 max-h-full"
-						/>
+						<button onClick={() => setShowProductPreview(true)}>
+							<img
+								src={currPreview}
+								alt=""
+								className="w-auto rounded-xl h-96 max-h-full"
+							/>
+						</button>
 
 						<div className="pt-6 flex justify-between">
 							{productDetails.images.map((image, idx) => {
 								return (
-									<img
-										src={image}
-										alt=""
-										className="w-auto h-20 rounded-xl inline"
-										key={idx}
-									/>
+									<button
+										key={`preview no.${idx}`}
+										onClick={() => setCurrPreview(image)}
+										className=" rounded-xl"
+									>
+										<img
+											src={image}
+											alt=""
+											className={`w-auto h-20 rounded-xl hover:border-Orange border-2 ${
+												image === currPreview
+													? "border-Orange"
+													: "border-transparent"
+											}`}
+										/>
+									</button>
 								);
 							})}
 						</div>
+
+						{/* PRODUCT PREVIEW MODAL */}
+						{showProductPreview && (
+							<ActiveProductPreview onClose={handleClose} images={productDetails.images} />
+						)}
 					</div>
 
 					{/* RIGHT */}
