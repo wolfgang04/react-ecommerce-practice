@@ -15,8 +15,6 @@ const Cart = (props) => {
 		props.onToggle(toggle);
 	};
 
-	console.log(cartTotalItems);
-
 	return (
 		<Modal onClose={handleToggle}>
 			<div className="bg-white w-80 shadow-2xl min-h-[225px] ml-auto rounded-lg fixed">

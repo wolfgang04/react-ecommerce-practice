@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { cartActions } from "../store/cartSlice";
-import ActiveProductPreview from "./ActiveProductPreview";
+import ActiveProductPreview from "./ActiveProductLightBox";
 import Header from "./Header";
 
 const Product = () => {
@@ -46,6 +46,14 @@ const Product = () => {
 		<>
 			<Header for={productDetails.for} />
 			<div className="flex justify-center items-center mx-40 p-8">
+			{/* PRODUCT PREVIEW MODAL */}
+			{showProductPreview && (
+				<ActiveProductPreview
+					onClose={handleClose}
+					images={productDetails.images}
+					curr={currPreview}
+				/>
+			)}
 				<div className="flex justify-between items-center w-[1000px]">
 					{/* LEFT */}
 
@@ -79,11 +87,6 @@ const Product = () => {
 								);
 							})}
 						</div>
-
-						{/* PRODUCT PREVIEW MODAL */}
-						{showProductPreview && (
-							<ActiveProductPreview onClose={handleClose} images={productDetails.images} />
-						)}
 					</div>
 
 					{/* RIGHT */}

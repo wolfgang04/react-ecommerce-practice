@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ProductPreviewModal from "./ProductPreviewModal";
+import ProductPreviewModal from "./ProductPreviewBackDrop";
 
 const ActiveProductPreview = (props) => {
 	const images = props.images;
 	const [toggle, setToggle] = useState(false);
-	const [currPreview, setCurrPreview] = useState(images[0]);
+	const [currPreview, setCurrPreview] = useState(props.curr);
 
 	const handleToggle = () => {
 		setToggle((prevState) => !prevState);
@@ -20,7 +20,7 @@ const ActiveProductPreview = (props) => {
 					alt=""
 					className="w-auto h-[450px] rounded-xl"
 				/>
-				<div className="bg-white relative z-50 rounded-full h-14 w-14 flex justify-center items-center">
+				{/* <div className="bg-white relative z-50 rounded-full h-14 w-14 flex justify-center items-center">
 					<img
 						src={
 							process.env.PUBLIC_URL +
@@ -29,7 +29,7 @@ const ActiveProductPreview = (props) => {
 						alt=""
 						className="h-7 w-auto"
 					/>
-				</div>
+				</div> */}
 
 				<div className="pt-6 flex justify-between gap-x-5 w-[380px]">
 					{images.map((image, idx) => {
