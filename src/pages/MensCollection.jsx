@@ -13,7 +13,7 @@ const MensCollection = () => {
 	return (
 		<>
 			<Header path={location.pathname} />
-			<div className="flex justify-evenly">
+			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{mensProducts.map((product) => {
 					return (
 						<div

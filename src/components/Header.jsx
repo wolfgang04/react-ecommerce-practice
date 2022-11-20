@@ -45,7 +45,7 @@ const Header = (props) => {
 						/>
 					</div>
 
-					<span className="hidden md:flex flex-row justify-between items-center w-[350px] text-dark-grayish-blue mr-4">
+					<span className="hidden md:flex flex-row justify-between items-center w-[350px] text-dark-grayish-blue mx-4">
 						<Link to="/collections">
 							<p className={pathStyle}>Collections</p>
 						</Link>
