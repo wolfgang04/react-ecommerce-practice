@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
+import NavBar from "./NavBar";
 
 const Header = (props) => {
 	const [showCart, setShowCart] = useState(false);
+	const [showNavBar, setShowNavBar] = useState(false);
 
 	const underline = "border-b-Orange border-b-4 pb-8 pt-8 text-black";
 	const menStyle =
@@ -19,20 +21,25 @@ const Header = (props) => {
 	};
 
 	return (
-		<header className="flex justify-center pb-8 h-[85px] sm:h-[125px]">
+		<header className="flex justify-center sm:pb-8 h-[52px] sm:h-[125px]">
 			<div className="flex justify-between items-center w-5/6 border-b-[1px]">
 				{/* LEFT */}
 
+				<NavBar {...{ showNavBar, setShowNavBar }} />
 				<div className="flex flex-row justify-between w-[600px]">
-					<div className="flex gap-4 lg:gap-0">
-						<button onClick={() => console.log("sdf")}>
+					<div className="flex gap-4 md:gap-0">
+						<button
+							onClick={() =>
+								setShowNavBar((prevValue) => !prevValue)
+							}
+						>
 							<img
 								src={
 									process.env.PUBLIC_URL +
 									"/images/icon-menu.svg"
 								}
 								alt=""
-								className="lg:hidden w-auto h-3 sm:h-auto"
+								className="md:hidden w-auto h-3 sm:h-auto"
 							/>
 						</button>
 
@@ -78,7 +85,7 @@ const Header = (props) => {
 							className="self-center h-auto w-4 sm:w-6"
 						/>
 					</button>
-					
+
 					<img
 						src={
 							process.env.PUBLIC_URL +
