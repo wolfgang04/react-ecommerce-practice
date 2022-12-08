@@ -72,7 +72,7 @@ const Header = (props) => {
 				</div>
 
 				{/* RIGHT */}
-				<div className="flex w-[100px] justify-between">
+				<div className="flex flex-shrink-0 w-[65px] sm:w-[100px] md:w-[110px] justify-between">
 					<button
 						onClick={() => setShowCart((prevValue) => !prevValue)}
 					>
@@ -82,7 +82,7 @@ const Header = (props) => {
 								"../../images/icon-cart.svg"
 							}
 							alt=""
-							className="self-center h-auto w-4 sm:w-6"
+							className="self-center h-auto w-5 sm:w-6"
 						/>
 					</button>
 
