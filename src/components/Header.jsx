@@ -72,19 +72,25 @@ const Header = (props) => {
 				</div>
 
 				{/* RIGHT */}
-				<div className="flex flex-shrink-0 w-[65px] sm:w-[100px] md:w-[110px] justify-between">
-					<button
-						onClick={() => setShowCart((prevValue) => !prevValue)}
-					>
-						<img
-							src={
-								process.env.PUBLIC_URL +
-								"../../images/icon-cart.svg"
+				<div className="flex flex-shrink-0 relative w-[65px] sm:w-[100px] md:w-[110px] justify-between">
+					<div className="flex">
+						<button
+							onClick={() =>
+								setShowCart((prevValue) => !prevValue)
 							}
-							alt=""
-							className="self-center h-auto w-5 sm:w-6"
-						/>
-					</button>
+						>
+							<img
+								src={
+									process.env.PUBLIC_URL +
+									"../../images/icon-cart.svg"
+								}
+								alt=""
+								className="self-center h-auto w-5 sm:w-6"
+							/>
+						</button>
+
+						<Cart show={showCart} onToggle={handleToggle} />
+					</div>
 
 					<img
 						src={
@@ -94,7 +100,6 @@ const Header = (props) => {
 						alt=""
 						className="self-center w-8 sm:w-12 h-auto hover:bg-Orange rounded-full"
 					/>
-					{showCart && <Cart onToggle={handleToggle} />}
 				</div>
 			</div>
 		</header>
