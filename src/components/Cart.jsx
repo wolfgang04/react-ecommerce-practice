@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dialog, Transition } from "@headlessui/react";
-import Modal from "./CartModal";
 import { cartActions } from "../store/cartSlice";
 
 const Cart = (props) => {
@@ -134,72 +133,6 @@ const Cart = (props) => {
 			</Dialog>
 		</Transition>
 	);
-
-	{
-		/* <Modal onClose={handleToggle}>
-			<div className=" bg-white m-5 mt-[65px] sm:mt-[100px] w-[90vw] shadow-2xl min-h-[225px] max-w-[325px] rounded-lg">
-				<div>
-					<p className="font-bold p-5 border-b-[1px]">Cart</p>
-				</div>
-
-				<div className="flex flex-col items-center justify-center h-full">
-					<div className="m-4 mx-0 px-4">
-						{cart.map((item) => {
-							return (
-								<div
-									className="flex justify-between items-center shrink p-0 w-[280px] mb-5"
-									key={item.name}
-								>
-									<img
-										className="w-auto h-12 rounded-md"
-										src={item.tn}
-										alt=""
-									/>
-									<div>
-										<p>{item.name}</p>
-										<p>{`$${item.price} x${item.amount} $${
-											item.price * item.amount
-										}`}</p>
-									</div>
-
-									<button
-										onClick={() =>
-											dispatch(
-												cartActions.removeItem(item.id)
-											)
-										}
-									>
-										<img
-											className="h-auto w-[14px]"
-											alt=""
-											src={
-												process.env.PUBLIC_URL +
-												"../../images/icon-delete.svg"
-											}
-										/>
-									</button>
-								</div>
-							);
-						})}
-
-						{cartTotalItems > 0 && (
-							<button className="flex justify-center items-center bg-Orange h-12 rounded-lg w-[280px]">
-								<p className="text-white">Checkout</p>
-							</button>
-						)}
-					</div>
-
-					{cartTotalItems < 1 && (
-						<div>
-							<p className="text-dark-grayish-blue">
-								Your cart is empty.
-							</p>
-						</div>
-					)}
-				</div>
-			</div>
-					</Modal> */
-	}
 };
 
 export default Cart;
