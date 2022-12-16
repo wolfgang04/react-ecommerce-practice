@@ -21,12 +21,12 @@ const Header = (props) => {
 	};
 
 	return (
-		<header className="flex justify-center sm:pb-4 h-[52px] sm:h-[109px]">
-			<div className="flex justify-between items-center w-5/6 border-b-[1px]">
+		<header className="flex h-[52px] justify-center sm:h-[109px] sm:pb-4 md:h-[125px] md:pb-8">
+			<div className="flex w-5/6 items-center justify-between border-b-[1px]">
 				{/* LEFT */}
 
 				<NavBar {...{ showNavBar, setShowNavBar }} />
-				<div className="flex flex-row justify-between w-[600px]">
+				<div className="flex w-[600px] flex-row justify-between">
 					<div className="flex gap-4 md:gap-0">
 						<button
 							onClick={() =>
@@ -39,7 +39,7 @@ const Header = (props) => {
 									"/images/icon-menu.svg"
 								}
 								alt=""
-								className="md:hidden w-auto h-3 sm:h-auto"
+								className="h-3 w-auto sm:h-auto md:hidden"
 							/>
 						</button>
 
@@ -48,11 +48,11 @@ const Header = (props) => {
 								process.env.PUBLIC_URL + "../../images/logo.svg"
 							}
 							alt="logo-img"
-							className="self-center w-auto h-4 sm:h-5"
+							className="h-4 w-auto self-center sm:h-5"
 						/>
 					</div>
 
-					<span className="hidden md:flex flex-row justify-between items-center w-[350px] text-dark-grayish-blue mx-4">
+					<span className="mx-4 hidden w-[350px] flex-row items-center justify-between text-dark-grayish-blue md:flex">
 						<Link to="/collections">
 							<p className={pathStyle}>Collections</p>
 						</Link>
@@ -72,7 +72,7 @@ const Header = (props) => {
 				</div>
 
 				{/* RIGHT */}
-				<div className="flex flex-shrink-0 relative w-[65px] sm:w-[100px] md:w-[110px] justify-between">
+				<div className="relative flex w-[65px] flex-shrink-0 justify-between sm:w-[100px] md:w-[110px]">
 					<div className="flex">
 						<button
 							onClick={() =>
@@ -85,7 +85,7 @@ const Header = (props) => {
 									"../../images/icon-cart.svg"
 								}
 								alt=""
-								className="self-center h-auto w-5 sm:w-6"
+								className="h-auto w-5 self-center sm:w-6"
 							/>
 						</button>
 
@@ -98,7 +98,7 @@ const Header = (props) => {
 							"../../images/image-avatar.png"
 						}
 						alt=""
-						className="self-center w-8 sm:w-12 h-auto hover:bg-Orange rounded-full"
+						className="h-auto w-8 self-center rounded-full hover:bg-Orange sm:w-12"
 					/>
 				</div>
 			</div>
