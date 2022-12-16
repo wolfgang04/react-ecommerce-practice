@@ -67,7 +67,7 @@ const Product = () => {
 							/>
 						</button>
 
-						<div className="hidden justify-between pt-6 md:flex">
+						<div className="hidden justify-between pt-6 md:flex gap-5">
 							{productDetails.images.map((image, idx) => {
 								return (
 									<button
