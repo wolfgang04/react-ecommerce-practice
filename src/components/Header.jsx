@@ -21,7 +21,7 @@ const Header = (props) => {
 	};
 
 	return (
-		<header className="flex justify-center sm:pb-8 h-[52px] sm:h-[125px]">
+		<header className="flex justify-center sm:pb-4 h-[52px] sm:h-[109px]">
 			<div className="flex justify-between items-center w-5/6 border-b-[1px]">
 				{/* LEFT */}
 
