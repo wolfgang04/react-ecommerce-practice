@@ -31,7 +31,7 @@ const Cart = (props) => {
 				</Transition.Child>
 
 				<div className="fixed inset-0 top-[50px] overflow-y-auto">
-					<div className="flex min-h-full items-start justify-center p-4 text-center">
+					<div className="flex min-h-full items-start justify-center md:justify-end md:mr-5 lg:mr-14 p-4 text-center">
 						<Transition.Child
 							as={Fragment}
 							enter="ease-out duration-300"
